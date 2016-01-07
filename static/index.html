@@ -8,18 +8,63 @@
 
 <body>
 	<!-- this is a comment in HTML -->
-	<h1>Scott Klemmer</h1> <!-- h1 through h5 are headers. The higher the number, the smaller the header -->
+	<h1>James Edward Natanauan</h1> <!-- h1 through h5 are headers. The higher the number, the smaller the header -->
 	<h4>Project Portfolio</h4>
 
 	<!-- p means paragraph -->
-	<p>Scott is an Associate Professor of Cognitive Science and Computer Science & Engineering at UC San Diego, where he is a co-founder and Associate Director of the Design Lab. He previously served as Associate Professor of Computer Science at Stanford, where he co-directed the HCI Group, held the Bredt Faculty Scholar chair, and was a founding participant in the d.school. </p>
+	<p>James is a fourth year computer engineering undergraduate student at the University of California, San Diego with an interest in web development,
+	   embedded systems, HCI (recently), and 3D computer graphics.</p>
+
+	   <p> Below is an in progress 3D threejs scene </p>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
+			document.body.appendChild( renderer.domElement );
+
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, shininess: 30, shading: THREE.flatShading, specular: 0xFFFFFF} );
+			var cube = new THREE.Mesh( geometry, material );
+			var light = new THREE.AmbientLight( 0x303030 ); // soft white light
+			var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+
+			directionalLight.position.set( 0, 1, 1 );
+			scene.add( directionalLight );
+			scene.add( light );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			var render = function () {
+				requestAnimationFrame( render );
+
+				cube.rotation.x += 0.01;
+				cube.rotation.y += 0.01;
+
+				renderer.render(scene, camera);
+			};
+
+			render();
+		</script>
 
 	<h4>Projects</h4>
 	<ol>
-		<li>Design Thinking</li>
-		<li>Needfinding</li>
-		<li>Prototyping</li>
-		<li>...</li>
+
+		<li><a href="http://cogs121-piedpiper.herokuapp.com" target="_blank">Average Housing Price Finder for the San Diego Area</a></li>
+		<p> This was my group's final project for cogs 121. It is a website that shows users the average housing price 
+		    per neighborhood in San Diego. <p>
+		<img src="121.png" height = "60%" width = "60%">
+
+		<li><a href="https://sites.google.com/site/mithrilsmartshirt/home" target="_blank">Smart Shirt</a></li>
+		<p> This was my group's project for CSE 145: Embedded Systems. We created a smart shirt that would obtain biometric data on the wearer and send
+			the data to their mobile device. The data would be used by the wearer to track their performance relative to their fiteness goals. </p>
+		<img src="145.png">
+
+		
 	</ol>
 </body>
 </html>
