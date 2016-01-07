@@ -3,31 +3,43 @@
 <html>
 <head>
 	<meta charset="utf-8">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="flat-ui.css">
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 	<title>HCI Project Portfolio</title>
 </head>
 
 <body>
-	<!-- this is a comment in HTML -->
-	<h1>James Edward Natanauan</h1> <!-- h1 through h5 are headers. The higher the number, the smaller the header -->
-	<h4>Project Portfolio</h4>
+
+
+
+	<div class="jumbotron" style="background-color:#1abc9c">
+		<center><h1 style="color:white">James Edward Natanauan</h1></center>
+	</div>
 
 	<!-- p means paragraph -->
-	<p>James is a fourth year computer engineering undergraduate student at the University of California, San Diego with an interest in web development,
-	   embedded systems, HCI (recently), and 3D computer graphics.</p>
+	<p></p>
 
-	   <p> Below is an in progress 3D threejs scene </p>
+
+
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script>
 		<script>
 			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/(window.innerHeight/2), 0.1, 1000 );
 
 			var renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
+			renderer.setSize( window.innerWidth, window.innerHeight/2 );
 			document.body.appendChild( renderer.domElement );
 
 			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-			var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, shininess: 30, shading: THREE.flatShading, specular: 0xFFFFFF} );
+			var material = new THREE.MeshLambertMaterial( { color: 0x00ff00, shininess: 30, specular: 0xFFFFFF} );
 			var cube = new THREE.Mesh( geometry, material );
 			var light = new THREE.AmbientLight( 0x303030 ); // soft white light
 			var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
@@ -50,7 +62,13 @@
 
 			render();
 		</script>
+	<div class="container">
+		<p>James is a fourth year computer engineering undergraduate student at the University of California, San Diego with an interest in web development,
+		   embedded systems, HCI (recently), and 3D computer graphics.</p>
+		<p> Above is an in progress 3D threejs scene </p>
+	</div>
 
+	<div class = "container">
 	<h4>Projects</h4>
 	<ol>
 
@@ -64,7 +82,10 @@
 			the data to their mobile device. The data would be used by the wearer to track their performance relative to their fiteness goals. </p>
 		<img src="145.png">
 
+		<li> More Projects to be posted later... </li>
+
 		
 	</ol>
+	</div>
 </body>
 </html>
