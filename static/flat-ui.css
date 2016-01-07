@@ -483,6 +483,9 @@ small,
 .text-muted {
   color: #bdc3c7;
 }
+#noPadding{
+  margin-bottom: 0;
+}
 .text-inverse {
   color: #ffffff;
 }
